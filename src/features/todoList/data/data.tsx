@@ -14,6 +14,6 @@ export const toDoList: toDo[] = [
   {
     id: 3,
     name: "recoger paquete",
-    done: true,
+    done: false,
   },
 ];
