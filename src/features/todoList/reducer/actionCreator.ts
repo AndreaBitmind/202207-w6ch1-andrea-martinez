@@ -4,4 +4,3 @@ import { toDo } from "../models/models";
 
 export const loadTodosTaskActionNew = createAction<toDo[]>("loadTodoList");
 loadTodosTaskActionNew(toDoList);
-console.log(loadTodosTaskActionNew(toDoList));
