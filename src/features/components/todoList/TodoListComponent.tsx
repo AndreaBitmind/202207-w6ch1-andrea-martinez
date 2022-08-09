@@ -2,8 +2,12 @@ import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RestRepository } from "../../../app/respositories/rest.respository";
 import { RootState } from "../../../app/store";
+import { newTaskt } from "../../todoList/data/data";
 import { toDo } from "../../todoList/models/models";
-import { loadTodosTaskActionNew } from "../../todoList/reducer/actionCreator";
+import {
+  createTaskAction,
+  loadTodosTaskActionNew,
+} from "../../todoList/reducer/actionCreator";
 
 export function TodoList() {
   const todoList = useSelector((state: RootState) => state.todoList);
@@ -19,6 +23,11 @@ export function TodoList() {
       .then((todoListAPI) => dispatch(loadTodosTaskActionNew(todoListAPI)));
   }, [dispatch, repoTasks]);
 
+  const handlerCreate = async () => {
+    const data = await repoTasks.create(newTaskt);
+    dispatch(createTaskAction(data));
+  };
+
   return (
     <>
       <ul>
@@ -27,7 +36,7 @@ export function TodoList() {
         ))}
       </ul>
       <div>
-        <button>Add</button>
+        <button onClick={handlerCreate}>Create</button>
         <button>Modify</button>
         <button>Delete</button>
       </div>

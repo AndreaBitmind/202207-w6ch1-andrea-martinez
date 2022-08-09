@@ -1,6 +1,6 @@
 import { toDo } from "../models/models";
 
-export const toDoList: toDo[] = [
+export const toDoListArray: toDo[] = [
   {
     id: 1,
     name: "comprar fruta",
@@ -17,3 +17,14 @@ export const toDoList: toDo[] = [
     done: false,
   },
 ];
+
+export const newTaskt: Partial<toDo> = {
+  name: "comprar fruta",
+  done: false,
+};
+
+export const newTasktModified: toDo = {
+  id: 4,
+  name: "comprar fruta",
+  done: false,
+};

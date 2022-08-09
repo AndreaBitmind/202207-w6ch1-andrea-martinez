@@ -1,5 +1,5 @@
 import { toDo } from "../../models/models";
-import { ActionType } from "./actionTypes";
+import { ActionTypes } from "./actionTypes";
 
 export interface Anyaction {
   type: any;
@@ -9,6 +9,6 @@ export interface UnknownAction extends Anyaction {
 }
 
 export interface Action extends Anyaction {
-  type: ActionType;
+  type: ActionTypes;
   payload: toDo;
 }
