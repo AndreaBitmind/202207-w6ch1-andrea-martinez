@@ -5,6 +5,7 @@ interface Item {
 interface RestRepositoryType<T extends Item> {
   loadAll: () => Promise<Array<T>>;
   create: (item: Partial<T>) => Promise<T>;
+  delete: (id: number) => Promise<T>;
 }
 
 export class RestRepository<T extends Item> implements RestRepositoryType<T> {
@@ -22,6 +23,13 @@ export class RestRepository<T extends Item> implements RestRepositoryType<T> {
       headers: {
         "content-type": "application/json",
       },
+    });
+    return response.json();
+  }
+
+  async delete(id: number) {
+    const response = await fetch(this.urlAPI + id, {
+      method: "DELETE",
     });
     return response.json();
   }
