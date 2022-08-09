@@ -28,3 +28,5 @@ export const newTasktModified: toDo = {
   name: "comprar fruta",
   done: false,
 };
+
+export const idTodelete = 1;
